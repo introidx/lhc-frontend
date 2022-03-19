@@ -1,0 +1,29 @@
+.row {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col-2 {
+  flex-basis: 50%;
+  min-width: 300px;
+  align-items: center;
+  justify-content: center;
+}
+
+.col-2 img {
+  /* margin-top: 100px;
+  width: 200px;
+  padding: 50px 0;
+  margin-left: 50px; */
+  /* top and bottom 50 left and right 0 */
+}
+
+.col-4 {
+  padding: 0px;
+  margin: 0px;
+  width: 36%;
+  float: left;
+}
