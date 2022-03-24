@@ -14,10 +14,14 @@ const ClassCard = () => {
       </div>
       <div className="container">
         <div className="logo-box">
-          <img src={require("./video-camera.png")} width="50%" />
+          <a href="https://www.qries.com/">
+            <img src={require("./video-camera.png")} width="50%" />
+          </a>
         </div>
         <div className="logo-box">
-          <img src={require("./video-camera.png")} width="50%" />
+          <a href="https://www.qries.com/">
+            <img src={require("./bubble-chat.png")} width="50%" />
+          </a>
         </div>
       </div>
     </div>

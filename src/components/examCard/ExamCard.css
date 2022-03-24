@@ -1,0 +1,81 @@
+.main-card {
+  /* background-color: red; */
+  height: 100px;
+  width: 500px;
+  background-color: #63dda2;
+  border-radius: 10px;
+}
+
+.left-card {
+  height: 100%;
+  float: left;
+  width: 30%;
+  overflow-x: auto;
+}
+
+.right-card {
+  height: 100%;
+  float: left;
+  width: 70%;
+  overflow-x: auto;
+  background-color: #32ac71;
+  border-radius: 10px;
+}
+
+.left-card h3 {
+  padding: 0px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.left-card h4 {
+  padding: 0px;
+  margin: 0px;
+  margin-left: 10px;
+}
+
+.right-card h3 {
+  padding: 0px;
+  margin: 0px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.container {
+}
+
+.time-container {
+  float: left;
+  width: 50%;
+  overflow-x: auto;
+  display: inline-block;
+}
+
+.time-logo {
+  float: left;
+  width: 30%;
+  overflow-x: auto;
+}
+
+.time-text {
+  float: left;
+  width: 70%;
+  overflow-x: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /* padding-left: 10px; */
+}
+
+.time-text h5 {
+  margin: 0px;
+}
+
+.marks-container {
+  float: left;
+  width: 50%;
+  overflow-x: auto;
+}
+
+/* .time-content {
+  display: inline-block;
+} */

@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./home/Home";
 import Login from "./login/Login";
 import Register from "./register/Register";
+import Test from "./test/Test";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/test" element={<Test />} />
       </Routes>
     </Router>
   );
