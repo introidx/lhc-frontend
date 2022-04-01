@@ -1,0 +1,26 @@
+.test {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.row {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col-2 {
+  flex-basis: 40%;
+  min-width: 300px;
+  align-items: center;
+  justify-content: center;
+  /* padding-left: 10px;
+  padding-right: 10px; */
+}
+
+.examcard-container {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}

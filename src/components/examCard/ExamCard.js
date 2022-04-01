@@ -19,7 +19,14 @@ const ExamCard = () => {
               <h5>2 Days Left</h5>
             </div>
           </div>
-          <div className="marks-container">Hello</div>
+          <div className="marks-container">
+            <div className="marks-logo">
+              <img src={require("./line-chart.png")} width="70%" />
+            </div>
+            <div className="marks-text">
+              <h5>25 Marks</h5>
+            </div>
+          </div>
         </div>
       </div>
     </div>

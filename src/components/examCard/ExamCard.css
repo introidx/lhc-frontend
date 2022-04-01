@@ -1,3 +1,6 @@
+* {
+  color: #fff;
+}
 .main-card {
   /* background-color: red; */
   height: 100px;
@@ -55,14 +58,17 @@
   float: left;
   width: 30%;
   overflow-x: auto;
+  margin-top: 10px;
+  margin-bottom: 0px;
 }
 
 .time-text {
   float: left;
   width: 70%;
   overflow-x: auto;
-  margin-top: 0px;
+  margin-top: 10px;
   margin-bottom: 0px;
+  padding-top: 8px;
   /* padding-left: 10px; */
 }
 
@@ -74,6 +80,28 @@
   float: left;
   width: 50%;
   overflow-x: auto;
+  display: inline-block;
+}
+
+.marks-logo {
+  float: left;
+  width: 30%;
+  overflow-x: auto;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.marks-text {
+  float: left;
+  width: 70%;
+  overflow-x: auto;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding-top: 8px;
+}
+
+.marks-text h5 {
+  margin: 0px;
 }
 
 /* .time-content {
