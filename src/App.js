@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -8,6 +9,12 @@ import Test from "./test/Test";
 import QuestionPage from "./questionPage/QuestionPage";
 
 const App = () => {
+  // check if user already exists
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    // if logged in user already exists then change route
+  });
+
   return (
     <Router>
       <Routes>
