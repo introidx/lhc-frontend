@@ -104,6 +104,11 @@
   margin: 0px;
 }
 
+.examcard-container {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
 /* .time-content {
   display: inline-block;
 } */

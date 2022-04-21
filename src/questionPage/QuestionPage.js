@@ -1,57 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./QuestionPage.css";
 import Header from "../components/header/Header";
+import QuestionCard from "../components/questionCard/QuestionCard";
+import axios from "axios";
+import base_url from "../api/spring-boot-api";
 
 const QuestionPage = () => {
+  const [questions, setQuestions] = useState([
+    { questionId: 1001, questionTitle: "ABC DSFHK", questionMarks: "25 Marks" },
+    { questionId: 1002, questionTitle: "GHIJKL", questionMarks: "20 Marks" },
+  ]);
+
+  // const getAllCoursesFromServer = () => {
+  //   axios.get(`${base_url}/tests`).then(
+  //     (response) => {
+  //       console.log(response.data);
+  //       setTest(response.data);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // };
+
+  // useEffect(() => {
+  //   getAllCoursesFromServer();
+  // }, []);
+
+  const getAllQuestionsFromOneTestId = () => {
+    let testId = localStorage.getItem("testId");
+    console.log(testId);
+    axios.get(`${base_url}/questions/${testId}`).then(
+      (Response) => {
+        console.log(questions);
+        setQuestions();
+      },
+      (error) => {}
+    );
+  };
+
+  useEffect(() => {
+    getAllQuestionsFromOneTestId();
+  }, []);
+
   return (
     <div className="question-page">
       <Header />
       <h3>Topic Test: Database Normalisation</h3>
-      <div className="one-question-container">
-        <h4>Question 1 : What is Database Normalisation? (10 Marks)</h4>
-        <textarea
-          name="answer"
-          cols="40"
-          rows="5"
-          placeholder="Type your answer here..."
-        ></textarea>
-      </div>
-      <div className="one-question-container">
-        <h4>Question 1 : What is Database Normalisation? (10 Marks)</h4>
-        <textarea
-          name="answer"
-          cols="40"
-          rows="5"
-          placeholder="Type your answer here..."
-        ></textarea>
-      </div>
-      <div className="one-question-container">
-        <h4>Question 1 : What is Database Normalisation? (10 Marks)</h4>
-        <textarea
-          name="answer"
-          cols="40"
-          rows="5"
-          placeholder="Type your answer here..."
-        ></textarea>
-      </div>
-      <div className="one-question-container">
-        <h4>Question 1 : What is Database Normalisation? (10 Marks)</h4>
-        <textarea
-          name="answer"
-          cols="40"
-          rows="5"
-          placeholder="Type your answer here..."
-        ></textarea>
-      </div>
-      <div className="one-question-container">
-        <h4>Question 1 : What is Database Normalisation? (10 Marks)</h4>
-        <textarea
-          name="answer"
-          cols="40"
-          rows="5"
-          placeholder="Type your answer here..."
-        ></textarea>
-      </div>
+      {questions.length > 0
+        ? questions.map((item) => (
+            <QuestionCard key={item.questionId} questions={item} />
+          ))
+        : "No Questions Found"}
+
       <button className="btn-submit">Submit</button>
     </div>
   );

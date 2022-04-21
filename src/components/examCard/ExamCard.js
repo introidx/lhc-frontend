@@ -1,30 +1,47 @@
 import React from "react";
 import "./ExamCard.css";
+import { useNavigate } from "react-router-dom";
 
-const ExamCard = () => {
+const ExamCard = ({ test }) => {
+  const navigate = useNavigate();
+  // console.log(test);
+  const handleOnClick = () => {
+    localStorage.setItem("testId", test.testId);
+    let testId = localStorage.getItem("testId");
+    console.log(testId);
+    navigate("question-page");
+  };
+
   return (
-    <div className="main-card">
-      <div className="left-card">
-        <h3>CSOE 41</h3>
-        <h4>Test 1</h4>
-      </div>
-      <div className="right-card">
-        <h3>Database Normalisation</h3>
-        <div className="container">
-          <div className="time-container">
-            <div className="time-logo">
-              <img src={require("./clock.png")} width="70%" />
+    <div className="examcard-container">
+      <div
+        onClick={() => {
+          handleOnClick();
+        }}
+        className="main-card"
+      >
+        <div className="left-card">
+          <h3>{test.subjectCode}</h3>
+          <h4>Test 1</h4>
+        </div>
+        <div className="right-card">
+          <h3>{test.topicName}</h3>
+          <div className="container">
+            <div className="time-container">
+              <div className="time-logo">
+                <img src={require("./clock.png")} width="70%" />
+              </div>
+              <div className="time-text">
+                <h5>{test.time}</h5>
+              </div>
             </div>
-            <div className="time-text">
-              <h5>2 Days Left</h5>
-            </div>
-          </div>
-          <div className="marks-container">
-            <div className="marks-logo">
-              <img src={require("./line-chart.png")} width="70%" />
-            </div>
-            <div className="marks-text">
-              <h5>25 Marks</h5>
+            <div className="marks-container">
+              <div className="marks-logo">
+                <img src={require("./line-chart.png")} width="70%" />
+              </div>
+              <div className="marks-text">
+                <h5>{test.marks}</h5>
+              </div>
             </div>
           </div>
         </div>

@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Login.css";
+import { Navigate } from "react-router-dom";
 import axios from "axios";
 import base_url from "../api/spring-boot-api";
+import { UserContext } from "../context/UserContext";
 
 const Login = () => {
   useEffect(() => {
     document.title = "LHC | Login";
   }, []);
+
+  const context = useContext(UserContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,12 +29,17 @@ const Login = () => {
         console.log(response.data);
         setUser(response.data);
         localStorage.setItem("user", response.data);
+        context.setUser({ email: response.email, name: response.name });
       },
       (error) => {
         console.log(error);
       }
     );
   };
+
+  if (context.user?.email) {
+    return <Navigate replace to="/" />;
+  }
 
   return (
     <div className="page">

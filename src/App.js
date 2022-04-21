@@ -5,6 +5,7 @@ import "./App.css";
 import Home from "./home/Home";
 import Login from "./login/Login";
 import Register from "./register/Register";
+import { UserContext } from "./context/UserContext";
 import Test from "./test/Test";
 import QuestionPage from "./questionPage/QuestionPage";
 
@@ -15,15 +16,19 @@ const App = () => {
     // if logged in user already exists then change route
   });
 
+  const [user, setUser] = useState(null);
+
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/test" element={<Test />} />
-        <Route path="/question-page" element={<QuestionPage />}></Route>
-      </Routes>
+      <UserContext.Provider value={{ user, setUser }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/test/question-page" element={<QuestionPage />}></Route>
+        </Routes>
+      </UserContext.Provider>
     </Router>
   );
 };

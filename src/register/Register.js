@@ -1,6 +1,8 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { Navigate } from "react-router-dom";
 import base_url from "../api/spring-boot-api";
+import { UserContext } from "../context/UserContext";
 import "./Register.css";
 
 const Register = () => {
@@ -8,6 +10,7 @@ const Register = () => {
     document.title = "LHC | Register";
   }, []);
 
+  const context = useContext(UserContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,12 +21,18 @@ const Register = () => {
     axios.post(`${base_url}/users/register`, userDetails).then(
       (response) => {
         console.log(response.data);
+        context.setUser({ email: response.email, name: response.name });
+        localStorage.setItem("userName", response.data.name);
       },
       (error) => {
         console.log(error);
       }
     );
   };
+
+  if (context.user?.email) {
+    return <Navigate replace to="/" />;
+  }
 
   return (
     <div className="page">
