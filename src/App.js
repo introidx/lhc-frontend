@@ -8,6 +8,8 @@ import Register from "./register/Register";
 import { UserContext } from "./context/UserContext";
 import Test from "./test/Test";
 import QuestionPage from "./questionPage/QuestionPage";
+import Chat from "./chat/Chat";
+import ClassGroupVideo from "./video/ClassGroupVideo";
 
 const App = () => {
   // check if user already exists
@@ -27,6 +29,8 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/test" element={<Test />} />
           <Route path="/test/question-page" element={<QuestionPage />}></Route>
+          <Route path="/chat" element={<Chat />}></Route>
+          <Route path="/video" element={<ClassGroupVideo />}></Route>
         </Routes>
       </UserContext.Provider>
     </Router>

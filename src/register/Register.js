@@ -16,13 +16,15 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
 
-  const registerUser = () => {
+  const registerUser = (e) => {
+    e.preventDefault();
+    console.log("Register is being called");
     let userDetails = { name, email, password, role };
     axios.post(`${base_url}/users/register`, userDetails).then(
       (response) => {
         console.log(response.data);
-        context.setUser({ email: response.email, name: response.name });
-        localStorage.setItem("userName", response.data.name);
+        context.setUser({ email: email });
+        localStorage.setItem("userName", name);
       },
       (error) => {
         console.log(error);
@@ -30,7 +32,7 @@ const Register = () => {
     );
   };
 
-  if (context.user?.email) {
+  if (context.user) {
     return <Navigate replace to="/" />;
   }
 
@@ -82,7 +84,7 @@ const Register = () => {
                 id="role"
                 placeholder="Enter Your Role"
               />
-              <button onClick={registerUser()} className="btn">
+              <button onClick={registerUser} className="btn">
                 Register
               </button>
             </form>

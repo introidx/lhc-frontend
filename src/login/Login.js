@@ -22,6 +22,8 @@ const Login = () => {
   }
 
   const loginUser = (e) => {
+    e.preventDefault();
+    console.log("Login Called");
     let loginDetails = { email, password };
 
     axios.post(`${base_url}/users/login`, loginDetails).then(
@@ -29,7 +31,7 @@ const Login = () => {
         console.log(response.data);
         setUser(response.data);
         localStorage.setItem("user", response.data);
-        context.setUser({ email: response.email, name: response.name });
+        context.setUser({ email: email });
       },
       (error) => {
         console.log(error);
@@ -37,7 +39,7 @@ const Login = () => {
     );
   };
 
-  if (context.user?.email) {
+  if (context.user) {
     return <Navigate replace to="/" />;
   }
 
@@ -58,7 +60,7 @@ const Login = () => {
           <button className="btn-register">Register</button>
           <button className="btn-signin">SignIn</button>
           <div class="form-container">
-            <form id="LoginForm">
+            <form onSubmit={loginUser} id="LoginForm">
               <input
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -75,7 +77,7 @@ const Login = () => {
                 id="password"
                 placeholder="Enter Your Password"
               />
-              <button onClick={loginUser()} className="btn">
+              <button type="submit" className="btn">
                 Login
               </button>
             </form>
