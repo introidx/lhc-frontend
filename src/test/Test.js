@@ -6,38 +6,39 @@ import axios from "axios";
 import base_url from "../api/spring-boot-api";
 
 const Test = () => {
-  const [test, setTest] = useState([
-    {
-      testId: "1",
-      subjectCode: "CSOE 45",
-      topicName: "ABC",
-      time: "1 day Left",
-      marks: "23 Marks",
-    },
-    {
-      testId: "2",
-      subjectCode: "CSOE 45",
-      topicName: "ABC",
-      time: "1 day Left",
-      marks: "23 Marks",
-    },
-  ]);
+  // const [test, setTest] = useState([
+  //   {
+  //     testId: "1",
+  //     subjectCode: "CSOE 45",
+  //     topicName: "ABC",
+  //     time: "1 day Left",
+  //     marks: "23 Marks",
+  //   },
+  //   {
+  //     testId: "2",
+  //     subjectCode: "CSOE 45",
+  //     topicName: "ABC",
+  //     time: "1 day Left",
+  //     marks: "23 Marks",
+  //   },
+  // ]);
+  const [test, setTest] = useState([]);
 
-  // const getAllCoursesFromServer = () => {
-  //   axios.get(`${base_url}/tests`).then(
-  //     (response) => {
-  //       console.log(response.data);
-  //       setTest(response.data);
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }+
-  //   );
-  // };
+  const getAllTestsFromServer = () => {
+    axios.get(`${base_url}/tests`).then(
+      (response) => {
+        console.log(response.data);
+        setTest(response.data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  };
 
-  // useEffect(() => {
-  //   getAllCoursesFromServer();
-  // }, []);
+  useEffect(() => {
+    getAllTestsFromServer();
+  }, []);
 
   return (
     <div className="test">

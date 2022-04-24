@@ -6,26 +6,29 @@ import axios from "axios";
 import base_url from "../api/spring-boot-api";
 
 const QuestionPage = () => {
-  const [questions, setQuestions] = useState([
-    { questionId: 1001, questionTitle: "ABC DSFHK", questionMarks: "25 Marks" },
-    { questionId: 1002, questionTitle: "GHIJKL", questionMarks: "20 Marks" },
-  ]);
+  // const [questions, setQuestions] = useState([
+  //   { questionId: 1001, questionTitle: "ABC DSFHK", questionMarks: "25 Marks" },
+  //   { questionId: 1002, questionTitle: "GHIJKL", questionMarks: "20 Marks" },
+  // ]);
 
-  // const getAllCoursesFromServer = () => {
-  //   axios.get(`${base_url}/tests`).then(
-  //     (response) => {
-  //       console.log(response.data);
-  //       setTest(response.data);
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // };
+  const [questions, setQuestions] = useState([]);
 
-  // useEffect(() => {
-  //   getAllCoursesFromServer();
-  // }, []);
+  const getAllQuestionsFromServer = () => {
+    let testId = localStorage.getItem("testId");
+    axios.get(`${base_url}/questions/` + { testId }).then(
+      (response) => {
+        console.log(response.data);
+        setQuestions(response.data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  };
+
+  useEffect(() => {
+    getAllQuestionsFromServer();
+  }, []);
 
   const getAllQuestionsFromOneTestId = () => {
     let testId = localStorage.getItem("testId");
