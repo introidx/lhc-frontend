@@ -5,13 +5,13 @@ import { useState, useEffect } from "react";
 export default function Video(props) {
   const { users, tracks } = props;
   const [gridSpacing, setGridSpacing] = useState(12);
-
+  //
   useEffect(() => {
     setGridSpacing(Math.max(Math.floor(12 / (users.length + 1)), 4));
   }, [users, tracks]);
 
   return (
-    <Grid container style={{ height: "80%" }}>
+    <Grid container style={{ height: "100%" }}>
       <Grid item xs={gridSpacing}>
         <AgoraVideoPlayer
           videoTrack={tracks[1]}
@@ -26,7 +26,7 @@ export default function Video(props) {
                 <AgoraVideoPlayer
                   videoTrack={user.videoTrack}
                   key={user.uid}
-                  style={{ height: "100%", width: "100%" }}
+                  style={{ height: "100%", width: "10%" }}
                 />
               </Grid>
             );

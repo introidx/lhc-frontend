@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import {
   config,
   useClient,
@@ -21,6 +22,24 @@ export default function VideoCall(props) {
       client.on("user-published", async (user, mediaType) => {
         await client.subscribe(user, mediaType);
         if (mediaType === "video") {
+          console.warn("Video");
+
+          // Get `RemoteVideoTrack` in the `user` object.
+          const remoteVideoTrack = user.videoTrack;
+          console.log(remoteVideoTrack);
+
+          // Dynamically create a container in the form of a DIV element for playing the remote video track.
+          const PlayerContainer = React.createElement("div", {
+            id: user.uid,
+            className: "stream",
+          });
+          ReactDOM.render(
+            PlayerContainer,
+            document.getElementById("remote-stream")
+          );
+
+          user.videoTrack.play(`${user.uid}`);
+
           setUsers((prevUsers) => {
             return [...prevUsers, user];
           });

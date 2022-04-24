@@ -30,6 +30,7 @@ const QuestionPage = () => {
   const getAllQuestionsFromOneTestId = () => {
     let testId = localStorage.getItem("testId");
     console.log(testId);
+    document.documentElement.requestFullscreen();
     axios.get(`${base_url}/questions/${testId}`).then(
       (Response) => {
         console.log(questions);

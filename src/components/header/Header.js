@@ -8,10 +8,10 @@ const Header = () => {
         LHC
       </a>
       <div class="header-right">
-        <a class="active" href="#home">
+        <a class="active" href="http://localhost:3000">
           Home
         </a>
-        <a href="#test">Test</a>
+        <a href="http://localhost:3000/test">Test</a>
         <a href="#Classes">Classes</a>
         <a href="#Profile">
           <span class="dot">P</span>
