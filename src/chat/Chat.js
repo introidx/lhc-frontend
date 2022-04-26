@@ -3,6 +3,7 @@ import { over } from "stompjs";
 import SockJS from "sockjs-client";
 import base_url from "../api/spring-boot-api";
 import "./Chat.css";
+import Header from "../components/header/Header";
 
 var stompClient = null;
 const Chat = () => {
@@ -90,6 +91,7 @@ const Chat = () => {
 
   return (
     <div className="container">
+      <Header />
       {userData.connected ? (
         <div className="chat-content">
           <ul className="chat-messages">

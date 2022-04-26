@@ -35,8 +35,8 @@
 
 /* Style the active/current link*/
 .header a.active {
-  background-color: #675ff3;
-  color: white;
+  background-color: #fff;
+  color: #000;
 }
 
 /* Float the link section to the right */

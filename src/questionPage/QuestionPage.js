@@ -15,7 +15,7 @@ const QuestionPage = () => {
 
   const getAllQuestionsFromServer = () => {
     let testId = localStorage.getItem("testId");
-    axios.get(`${base_url}/questions/` + { testId }).then(
+    axios.get(`${base_url}/questions/{ testId }`).then(
       (response) => {
         console.log(response.data);
         setQuestions(response.data);
