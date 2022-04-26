@@ -11,24 +11,24 @@ const QuestionPage = () => {
   //   { questionId: 1002, questionTitle: "GHIJKL", questionMarks: "20 Marks" },
   // ]);
 
-  const [questions, setQuestions] = useState([]);
+   const [questions, setQuestions] = useState([]);
 
-  const getAllQuestionsFromServer = () => {
-    let testId = localStorage.getItem("testId");
-    axios.get(`${base_url}/questions/` + { testId }).then(
-      (response) => {
-        console.log(response.data);
-        setQuestions(response.data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  };
+  // const getAllQuestionsFromServer = () => {
+  //   let testId = localStorage.getItem("testId");
+  //   axios.get(`${base_url}/questions/{ testId }` ).then(
+  //     (response) => {
+  //       console.log(response.data);
+  //       setQuestions(response.data);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // };
 
-  useEffect(() => {
-    getAllQuestionsFromServer();
-  }, []);
+  // useEffect(() => {
+  //   getAllQuestionsFromServer();
+  // }, []);
 
   const getAllQuestionsFromOneTestId = () => {
     let testId = localStorage.getItem("testId");
@@ -37,9 +37,11 @@ const QuestionPage = () => {
     axios.get(`${base_url}/questions/${testId}`).then(
       (Response) => {
         console.log(questions);
-        setQuestions();
+        setQuestions(Response.data);
       },
-      (error) => {}
+      (error) => {
+        console.log(error);
+      }
     );
   };
 
