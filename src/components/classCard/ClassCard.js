@@ -24,7 +24,7 @@ const ClassCard = ({ course }) => {
           </a>
         </div>
         <div className="logo-box">
-          <a href="https://www.qries.com/">
+          <a href="http://localhost:3000/chat">
             <img src={require("./bubble-chat.png")} width="50%" />
           </a>
         </div>
